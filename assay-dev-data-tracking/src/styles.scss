@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --bg: #F2F2F2;
+    --dark-font: #656565;
+    --light-font: #fff;
+    --project: #0054A5;
+    --study: #00A5A0;
+    --experiment: #A5007F;
+    --dark-font: #202020;
+    --shadow: 0 6 10 rgba(0,0,0, .14);
+    --selected-row: rgba(170, 170, 170, .21);
+}
+body, html{
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--dark-font);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+.container{
+    min-height: 100vh;
+}
+h1,h2,h3,h4,h5,p{
+    margin: 0;
+}
+button{
+    cursor: pointer;
+    &:focus{
+        outline: none;
+    }
+}

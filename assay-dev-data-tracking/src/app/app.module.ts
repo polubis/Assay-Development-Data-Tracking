@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SpinnerComponent } from './components/utils/spinner/spinner.component';
+import { ModalComponent } from './components/utils/modal/modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpinnerComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
