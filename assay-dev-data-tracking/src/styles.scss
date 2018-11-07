@@ -6,7 +6,7 @@
     --study: #00A5A0;
     --experiment: #A5007F;
     --dark-font: #202020;
-    --shadow: 0 6 10 rgba(0,0,0, .14);
+    --shadow: 0 6px 10px rgba(0,0,0, .14);
     --selected-row: rgba(170, 170, 170, .21);
 }
 body, html{
@@ -16,8 +16,9 @@ body, html{
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
-.container{
+#container{
     min-height: 100vh;
+    box-shadow: var(--shadow);
 }
 h1,h2,h3,h4,h5,p{
     margin: 0;
@@ -27,4 +28,12 @@ button{
     &:focus{
         outline: none;
     }
+}
+ul{
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
