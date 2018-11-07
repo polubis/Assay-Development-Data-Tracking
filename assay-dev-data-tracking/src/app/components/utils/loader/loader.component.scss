@@ -1,0 +1,17 @@
+@import "../../../../colors.scss";
+.loader{
+    border-right-color: transparent;
+    animation: .5s animate-spinner ease-in infinite;
+    border: 2px solid $project;
+    border-top-color: transparent;
+    z-index: 1;
+    border-radius: 50%;
+    @keyframes animate-spinner {
+        0%{
+            transform: rotate(0);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}
