@@ -15,8 +15,15 @@ import { environment } from '../environments/environment';
 import { ProjectEffects } from './store/effects/project.effects';
 import { ProjectNavigatorComponent } from './containers/project-navigator/project-navigator.component';
 import { AsideComponent } from "src/app/components/utils/aside/aside.component";
+import { HandleRequestService } from "src/app/services/handle-request.service";
+import { PrompterComponent } from "src/app/components/utils/prompter/prompter.component";
 @NgModule({
-  declarations: [AppComponent, ProjectNavigatorComponent, AsideComponent],
+  declarations: [
+    AppComponent,
+    ProjectNavigatorComponent,
+    AsideComponent,
+    PrompterComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -26,7 +33,7 @@ import { AsideComponent } from "src/app/components/utils/aside/aside.component";
     EffectsModule.forRoot([ProjectEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  providers: [HandleRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

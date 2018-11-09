@@ -1,3 +1,8 @@
-<p>
-  project-navigator works!
-</p>
+<app-aside></app-aside>
+<main>
+  <ul>
+    <li *ngFor="let project of projects">
+      {{project.id}}
+    </li>
+  </ul>
+</main>

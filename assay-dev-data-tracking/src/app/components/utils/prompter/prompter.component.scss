@@ -1,0 +1,41 @@
+.prompter{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .prompt{
+        padding: 10px;
+        font-size: 14px;
+        display: flex;
+        animation: .4s error-in forwards;
+        align-items: center;
+        @keyframes error-in{
+            0%{
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        i:first-of-type{
+            margin-right: 7.5px;
+        }
+        i:last-of-type{
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+    .succ{
+        background: #6ECF8E;
+    }
+    .error{
+        background: #F35F5F;
+        color: white;
+    }
+    .warning{
+        background: #F6F674;
+        color: black;
+    }
+}

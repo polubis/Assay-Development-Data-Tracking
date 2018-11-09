@@ -4,6 +4,7 @@ import { ProjectNavigatorComponent } from "src/app/containers/project-navigator/
 
 const routes: Routes = [
   { path: '', component: ProjectNavigatorComponent }
+
 ];
 
 @NgModule({
