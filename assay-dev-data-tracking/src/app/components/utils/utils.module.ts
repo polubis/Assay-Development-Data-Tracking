@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { DropDownDirective } from '../../directives/drop-down-directive'; 
 import { ModalComponent } from "src/app/components/utils/modal/modal.component";
 import { LoaderComponent } from './loader/loader.component';
+import { AsideComponent } from './aside/aside.component';
 
 @NgModule({
     declarations: [

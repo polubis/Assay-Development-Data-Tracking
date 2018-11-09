@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from "src/app/containers/home/home.component";
+import { ProjectNavigatorComponent } from "src/app/containers/project-navigator/project-navigator.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: ProjectNavigatorComponent }
 ];
 
 @NgModule({

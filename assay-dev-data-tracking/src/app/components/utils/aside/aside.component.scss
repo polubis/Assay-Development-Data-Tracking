@@ -1,0 +1,55 @@
+@import '../../../../colors.scss';
+.a-side{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    min-height: 100vh;
+    .icons, .menu{
+        display: flex;
+        box-shadow: $shadow;
+        flex-flow: column;
+    }
+    .icons{
+        color: $light-font;
+        background: $dark-font;
+        span{
+            cursor: pointer;
+        }
+        i{
+            padding: 20px;
+        }
+    }
+    .menu{
+        background: $light-font;
+        color: $dark-font;
+        transition: .4s;
+        span{
+            padding: 22.5px 22.5px 22.5px 0;
+            transition: inherit;
+            font-weight: 500;
+        }
+    }
+    .current-route{
+        .icons{
+            background: $project;
+        }
+        .menu{
+            span{
+                color: $project;
+            }
+        }
+    }
+}
+.menu-collapsed{
+    span{
+        margin-left: 0;
+    }
+    opacity: 0;
+}
+.menu-expanded{
+    opacity: 1;
+    span{
+        margin-left: 22.5px;
+    }
+}

@@ -1,0 +1,22 @@
+<nav class="a-side">
+  <div class="icons">
+    <span (click)="togleSide()">
+      <i class="material-icons">dehaze</i>
+    </span>
+    <span>
+      <i class="material-icons">assignment</i>
+    </span>
+    <span>
+      <i class="material-icons">picture_as_pdf</i>
+    </span>
+    <span>
+      <i class="material-icons">photo_library</i>
+    </span>
+  </div>
+  <div class="menu" [ngClass]="{'menu-expanded': isSideBarExpanded, 'menu-collapsed': !isSideBarExpanded}">
+    <span>Hide Menu</span>
+    <span>Project Navigator</span>
+    <span>Staining Runs</span>
+    <span>Slide List</span>
+  </div>
+</nav>
