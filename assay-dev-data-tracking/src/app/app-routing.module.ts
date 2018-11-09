@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectNavigatorComponent } from "src/app/containers/project-navigator/project-navigator.component";
 
 const routes: Routes = [
-  { path: '', component: ProjectNavigatorComponent }
-
+  { path: '', component: ProjectNavigatorComponent },
 ];
 
 @NgModule({

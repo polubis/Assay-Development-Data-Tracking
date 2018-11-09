@@ -3,7 +3,7 @@
 
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { of } from "rxjs";
+import { of, throwError } from "rxjs";
 import { catchError } from "rxjs/internal/operators/catchError";
 import { Store } from "@ngrx/store";
 import * as fromApp from '../store/app.reducers';
@@ -28,7 +28,7 @@ export class HandleRequestService {
     requestsSettings: RequestSetting = {
         fetchProjects: {
             type: "get", 
-            url: "postds",
+            url: "posds",
             needsAuth: true,
             domain: "Projects"
         },
@@ -58,9 +58,7 @@ export class HandleRequestService {
                     return of();
                 }),
                 tap(data => {
-                    console.log(data.json());
-                    
-                    return data.json();
+                    return data;
                 })
             );
     }

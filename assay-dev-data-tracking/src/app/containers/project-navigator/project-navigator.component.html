@@ -1,5 +1,6 @@
 <app-aside></app-aside>
 <main>
+  <app-loader *ngIf="isLoadingProjects" [width]="'45px'" [height]="'45px'"></app-loader>
   <ul>
     <li *ngFor="let project of projects">
       {{project.id}}

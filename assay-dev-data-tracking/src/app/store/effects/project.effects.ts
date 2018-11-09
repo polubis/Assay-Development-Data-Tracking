@@ -23,27 +23,27 @@ export class ProjectEffects {
     switchMap((action: ProjectActions.FetchProjects) => {
       return this.handleRequestService.handleRequest("fetchProjects");
     }),
-    // map(data => {
-    //   const projects: Project[] = [];
-    //   Object.keys(data).forEach(element => {
-    //     const value = data[element];
-    //     projects.push(
-    //       new Project(
-    //         value.id,
-    //         value.title,
-    //         323213,
-    //         "Project FUnding",
-    //         "Thomas Bhurmuk",
-    //         "on Hold",
-    //         "19-12-2017",
-    //         value.userId
-    //       )
-    //     );
-    //   });
-    //   return {
-    //     type: ProjectActions.SET_PROJECTS,
-    //     payload: projects
-    //   };
-    // })
+    map(data => {
+      const projects: Project[] = [];
+      Object.keys(data).forEach(element => {
+        const value = data[element];
+        projects.push(
+          new Project(
+            value.id,
+            value.title,
+            323213,
+            "Project FUnding",
+            "Thomas Bhurmuk",
+            "on Hold",
+            "19-12-2017",
+            value.userId
+          )
+        );
+      });
+      return {
+        type: ProjectActions.SET_PROJECTS,
+        payload: projects
+      };
+    })
   );
 }

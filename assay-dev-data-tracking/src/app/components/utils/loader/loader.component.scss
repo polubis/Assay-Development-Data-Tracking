@@ -15,3 +15,16 @@
         }
     }
 }
+.loader-centered{
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+.loader-fixed{
+    position: fixed;
+}
+.loader-absolute{
+    position: absolute;
+}
