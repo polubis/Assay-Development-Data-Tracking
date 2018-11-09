@@ -12,10 +12,11 @@ import { Observable } from "rxjs";
 export class ProjectNavigatorComponent implements OnInit {
   constructor(private store: Store<fromApp.AppState>) {}
   projects: Project[] = [];
-  isLoadingProjects: Observable<{ loading: boolean }>;
+  isLoadingProjects: boolean = false;
 
   ngOnInit() {
     this.store.select("project").subscribe(projects => {
+      this.isLoadingProjects = projects.loading;
       this.projects = projects.projects;
     });
     this.store.dispatch(new ProjectActions.FetchProjects());

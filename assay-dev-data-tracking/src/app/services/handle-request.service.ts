@@ -23,12 +23,12 @@ export interface RequestSetting {
 export class HandleRequestService {
     constructor(private http: HttpClient, private store: Store<fromApp.AppState>){}
 
-    serverPath: string = "https://jsonplaceholder.typicode.com/";
-
+    serverPath: string = "https://jsonplaceholder.typicode.com/";   
+    // Ogarnac w jednej akcji request
     requestsSettings: RequestSetting = {
         fetchProjects: {
             type: "get", 
-            url: "posds",
+            url: "posts",
             needsAuth: true,
             domain: "Projects"
         },
@@ -48,12 +48,13 @@ export class HandleRequestService {
         }
     };
     
-    handleRequest(settingName: string){
+    handleRequest(settingName: string, functionToDispatch: any){
         const setting = this.requestsSettings[settingName];
 
         return this.http[setting.type](this.serverPath + setting.url)
             .pipe(
                 catchError(error => {
+                    this.store.dispatch(new functionToDispatch());
                     this.handleError(setting.domain, error);
                     return of();
                 }),

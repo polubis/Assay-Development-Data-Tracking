@@ -11,17 +11,19 @@ import { Project } from '../../models/project.model';
 import { of } from "rxjs";
 import { catchError } from "rxjs/internal/operators/catchError";
 import { HandleRequestService } from "src/app/services/handle-request.service";
+import * as fromApp from '../app.reducers';
 @Injectable()
 export class ProjectEffects {
   constructor(
     private actions$: Actions,
-    private handleRequestService: HandleRequestService
+    private handleRequestService: HandleRequestService,
+    private store: Store<fromApp.AppState>
   ) {}
 
   @Effect()
   projectFetch = this.actions$.ofType(ProjectActions.FETCH_PROJECTS).pipe(
     switchMap((action: ProjectActions.FetchProjects) => {
-      return this.handleRequestService.handleRequest("fetchProjects");
+      return this.handleRequestService.handleRequest("fetchProjects", ProjectActions.EndFetchProjects);
     }),
     map(data => {
       const projects: Project[] = [];
@@ -40,6 +42,7 @@ export class ProjectEffects {
           )
         );
       });
+      this.store.dispatch(new ProjectActions.EndFetchProjects());
       return {
         type: ProjectActions.SET_PROJECTS,
         payload: projects

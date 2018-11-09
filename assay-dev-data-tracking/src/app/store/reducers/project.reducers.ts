@@ -7,11 +7,13 @@ import * as ProjectActions from '../actions/project.actions';
 import * as fromApp from '../app.reducers';
 
 export interface State {
-  projects: Project[];
+  projects: Project[],
+  loading: boolean
 };
 
 const initialState: State = {
-    projects: []
+    projects: [],
+    loading: false
 };
 
 export function projectReducer(state = initialState, action: ProjectActions.ProjectActions){
@@ -20,6 +22,16 @@ export function projectReducer(state = initialState, action: ProjectActions.Proj
             return {
                 ...state,
                 projects: [...action.payload]
+            };
+        case ProjectActions.FETCH_PROJECTS:
+            return { 
+                ...state, 
+                loading: true
+            };
+        case ProjectActions.END_FETCH_PROJECTS:
+            return { 
+                ...state,
+                loading: false
             };
         default:
             return state;
