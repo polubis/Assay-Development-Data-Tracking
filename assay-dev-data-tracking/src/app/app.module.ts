@@ -14,15 +14,14 @@ import { reducers } from './store/app.reducers';
 import { environment } from '../environments/environment';
 import { ProjectEffects } from './store/effects/project.effects';
 import { ProjectNavigatorComponent } from './containers/project-navigator/project-navigator.component';
-import { AsideComponent } from "src/app/components/utils/aside/aside.component";
 import { HandleRequestService } from "src/app/services/handle-request.service";
-import { PrompterComponent } from "src/app/components/utils/prompter/prompter.component";
+import { AsideComponent } from "src/app/components/utils/aside/aside.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     ProjectNavigatorComponent,
-    AsideComponent,
-    PrompterComponent
+    AsideComponent
   ],
   imports: [
     BrowserModule,
