@@ -3,10 +3,14 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    .prompt:first-of-type{
+        border-top: none;
+    }
     .prompt{
         padding: 10px;
         font-size: 14px;
         display: flex;
+        border-top: 1px solid white;
         animation: .4s error-in forwards;
         align-items: center;
         @keyframes error-in{
@@ -19,12 +23,15 @@
                 transform: translateY(0);
             }
         }
-        i:first-of-type{
-            margin-right: 7.5px;
+        & > i {
+            margin: 0 7.5px;
         }
-        i:last-of-type{
+        .icons-content{
             margin-left: auto;
-            cursor: pointer;
+            i{
+                cursor: pointer;
+                margin-left: 15px;
+            }
         }
     }
     .succ{

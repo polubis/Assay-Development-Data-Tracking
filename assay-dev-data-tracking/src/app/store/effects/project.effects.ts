@@ -23,7 +23,7 @@ export class ProjectEffects {
   @Effect()
   projectFetch = this.actions$.ofType(ProjectActions.FETCH_PROJECTS).pipe(
     switchMap((action: ProjectActions.FetchProjects) => {
-      return this.handleRequestService.handleRequest("fetchProjects", ProjectActions.EndFetchProjects);
+      return this.handleRequestService.handleRequest("fetchProjects", ProjectActions.EndFetchProjects, ProjectActions.FetchProjects);
     }),
     map(data => {
       const projects: Project[] = [];

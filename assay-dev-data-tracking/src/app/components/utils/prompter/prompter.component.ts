@@ -10,10 +10,15 @@ import * as fromPrompt from '../../../store/actions/prompts.actions';
     <div class="prompter">
       <div *ngFor="let prompt of prompts" [ngClass]="'prompt ' + prompt.type">
         <i class="material-icons">{{iconsTypes[prompt.type]}}</i>
-        <span>{{prompt.content}}</span>
-        <i class="material-icons" (click)="closePrompt(prompt)">
-          close
-        </i>
+        <span>{{prompt.code}} {{prompt.content}}</span>
+        <div class="icons-content">
+          <i class="material-icons refresh" (click)="refreshEffect(prompt)">
+            refresh
+          </i>
+          <i class="material-icons" (click)="closePrompt(prompt)">
+            close
+          </i>
+        </div>
       </div>
     </div>
   `,
@@ -41,6 +46,20 @@ export class PrompterComponent implements OnInit, OnDestroy {
     this.store.dispatch(new fromPrompt.RemovePrompt(prompt));
   }
 
+  refreshEffect(prompt: Prompt){
+    if(prompt.effect){
+      const isPromptAlreadyInPrompts = this.prompts.findIndex(x => x.domain === prompt.domain);
+      if(isPromptAlreadyInPrompts !== -1)
+        this.closePrompt(prompt);
+
+      if(prompt.requestParams){
+        this.store.dispatch(new prompt.effect(prompt.requestParams));
+      }
+      else
+        this.store.dispatch(new prompt.effect());
+    }
+  }
+  
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
